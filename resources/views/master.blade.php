@@ -11,10 +11,11 @@
   <title>Blog Home - Start Bootstrap Template</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="css/blog-home.css" rel="stylesheet">
+  <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
 </head>
 
@@ -50,6 +51,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/cmslaravel/public/career">CAREER</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cmslaravel/public/manage">MANAGE</a>
+          </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
         <li class="nav-item dropdown">
@@ -81,28 +85,19 @@
     <div class="row">
 
       <!-- Blog Entries Column -->
-      <div class="col-md-8">
-
-        <img src ="image/inspired27.png" alt="inspired27.png" width="140" height="60">
+      <div class="col-md-9">
+      <br>
+        <!--<img src ="image/inspired27.png" alt="inspired27.png" width="140" height="60">-->
 
         <!-- Blog Post -->
 
         @yield('konten')
 
         <!-- Pagination -->
-        <ul class="pagination justify-content-center mb-4">
-          <li class="page-item">
-            <a class="page-link" href="#">&larr; Older</a>
-          </li>
-          <li class="page-item disabled">
-            <a class="page-link" href="#">Newer &rarr;</a>
-          </li>
-        </ul>
-
       </div>
 
       <!-- Sidebar Widgets Column -->
-      <div class="col-md-4">
+      <div class="col-md-3">
 
         <!-- Search Widget -->
         <div class="card my-4">
@@ -132,6 +127,9 @@
                   </li>
                   <li>
                     <a href="/cmslaravel/public/women">WOMEN</a>
+                  </li>
+                  <li>
+                    <a href="/cmslaravel/public/manage">MANAGE</a>
                   </li>
                 </ul>
               </div>

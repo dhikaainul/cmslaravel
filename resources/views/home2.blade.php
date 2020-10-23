@@ -3,8 +3,37 @@
 <!DOCTYPE html>
 <body>
           <!-- Blog Post -->
-        <div class="car4d mb-">
-          <img class="card-img-top" src="image/inspired.jpg" alt="inspired.jpg">
+          <div class="card mb-">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-100" src="image/inspired.jpg" alt="First slide" width="100" height="500">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="image/men.jpg" alt="Second slide"  width="100" height="500">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="image/women.jpg" alt="Third slide" width="100" height="500">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="image/kids.jpg" alt="Third slide" width="100" height="500">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
           <div class="card-body">
             <p class="card-text">Inspired27 Official Shop adalah akun resmi dari Inspired27 di platform web. Inspired27 didirikan pada tahun 2003 untuk memberikan pelayanan dalam dunia Fashion di Indonesia.Komitmen Inspired27 adalah memberikan pelayanan di dunia Fashion dengan produk-produk berkualitas terbaik serta harga yang kompetitif & relatif terjangkau.Kualitas daripada produk 
              yang telah kami ciptakan sudah di akui secara luas khususnya wilayah Jawa Timur.</p>           
