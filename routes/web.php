@@ -14,39 +14,48 @@
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::get('/home2', 'webcontroller@home2');
+//menu
+Route::get('/home2', 'webcontroller@home2')->name('home2');
 Route::get('/men', 'webcontroller@men')->name('men');
 Route::get('/women', 'webcontroller@women')->name('women');
 Route::get('/kids', 'webcontroller@kids')->name('kids');
-Route::get('/carabayar', 'webcontroller@carabayar');
-Route::get('/career', 'webcontroller@career');
+Route::get('/carabayar', 'webcontroller@carabayar')->name('carabayar');
+Route::get('/career', 'webcontroller@career')->name('career');
+//komentar
 Route::get('/komentarmen', 'webcontroller@komentarmen');
 Route::get('/komentarwomen', 'webcontroller@komentarwomen');
 Route::get('/komentarkids', 'webcontroller@komentarkids');
-Route::get('/manage','webcontroller@manage')->name('manage');
-Route::get('/manage2','webcontroller@manage2')->name('manage2');
-Route::get('/manage3','webcontroller@manage3')->name('manage3');
-Route::get('/addmanagemen','webcontroller@addmanagemen');
-Route::get('/addmanagewomen','webcontroller@addmanagewomen');
-Route::get('/addmanagekids','webcontroller@addmanagekids');
+//menu manage
+Route::get('/manage','ManageController@manage')->name('manage');
+Route::get('/manage2','ManageController@manage2')->name('manage2');
+Route::get('/manage3','ManageController@manage3')->name('manage3');
+//tambah manage produk
+Route::get('/addmanagemen','ManageController@addmanagemen');
+Route::get('/addmanagewomen','ManageController@addmanagewomen');
+Route::get('/addmanagekids','ManageController@addmanagekids');
+//tambah komentar
 Route::get('/addmanagecommen','webcontroller@addmanagecommen');
 Route::get('/addmanagecomwomen','webcontroller@addmanagecomwomen');
 Route::get('/addmanagecomkids','webcontroller@addmanagecomkids');
-Route::post('/createmen','webController@createmen'); 
-Route::post('/createwomen','webController@createwomen');
-Route::post('/createkids','webController@createkids');
+//create manage
+Route::post('/createmen','ManageController@createmen'); 
+Route::post('/createwomen','ManageController@createwomen');
+Route::post('/createkids','ManageControllerr@createkids');
+//create komentar
 Route::post('/createcommen','webController@createcommen');
 Route::post('/createcomwomen','webController@createcomwomen');
 Route::post('/createcomkids','webController@createcomkids');
-Route::get('/editmen/{id}','webController@editmen');
-Route::post('/updatemen/{id}','webController@updatemen');  
-Route::get('/deletemen/{id}','webController@deletemen'); 
-Route::get('/editwomen/{id}','webController@editwomen');
-Route::post('/updatewomen/{id}','webController@updatewomen');  
-Route::get('/deletewomen/{id}','webController@deletewomen');
-Route::get('/editkids/{id}','webController@editkids');
-Route::post('/updatekids/{id}','webController@updatekids');
-Route::get('/deletekids/{id}','webController@deletekids');
+//edit,update,delete produk manage 
+Route::get('/editmen/{id}','ManageController@editmen');
+Route::post('/updatemen/{id}','ManageController@updatemen');  
+Route::get('/deletemen/{id}','ManageController@deletemen'); 
+Route::get('/editwomen/{id}','ManageController@editwomen');
+Route::post('/updatewomen/{id}','ManageController@updatewomen');  
+Route::get('/deletewomen/{id}','ManageController@deletewomen');
+Route::get('/editkids/{id}','ManageControllerr@editkids');
+Route::post('/updatekids/{id}','ManageController@updatekids');
+Route::get('/deletekids/{id}','ManageController@deletekids');
+//edit,update,delete komen
 Route::get('/editcommen/{id}','webController@editcommen');
 Route::post('/updatecommen/{id}','webController@updatecommen');
 Route::get('/deletecommen/{id}','webController@deletecommen');

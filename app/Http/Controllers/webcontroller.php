@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Gate;
 use App\Men;
 use App\Women;
 use App\Kids;
@@ -10,8 +12,15 @@ use App\Laki;
 use App\Perempuan;
 use App\Anak;
 
-class webcontroller extends Controller
-{
+class webcontroller extends Controller {
+	//gate
+	public function __construct(){ 
+		//$this->middleware('auth'); 
+		$this->middleware(function($request, $next){ 
+		if(Gate::allows('user-display')) return $next($request);
+	    abort(403, 'Anda tidak memiliki cukup hak akses'); 
+		}); 
+	}
 	//menu
     public function home2(){
 		return view('home2');
@@ -49,7 +58,7 @@ class webcontroller extends Controller
 		$kids= Kids::all();
         return view('komentarkids',['kids'=>$kids]);
 	}
-	//menu manage
+	//menu manage iki dihapus
 	public function manage(){ 
 		$laki= Laki::all();
         return view('manage',['laki'=>$laki]);
@@ -62,7 +71,7 @@ class webcontroller extends Controller
 		$perempuan= Perempuan::all();
         return view('manage3',['perempuan'=>$perempuan]);
 	}
-    //tambah manage product
+    //tambah manage product dihapus
 	public function addmanagemen(){ 
         return view('addmanagemen');
 	}
@@ -72,6 +81,7 @@ class webcontroller extends Controller
 	public function addmanagekids(){ 
         return view('addmanagekids');
 	}
+	//tambah komentar
 	public function addmanagecommen(){ 
         return view('addmanagecommen');
 	}
@@ -81,7 +91,7 @@ class webcontroller extends Controller
 	public function addmanagecomkids(){ 
         return view('addmanagecomkids');
 	}
-	//proses tambah data produk
+	//proses tambah data produk dihapus
 	public function createmen(Request $request) { 
         Laki::create([ 
 			'title' => $request->title, 
@@ -140,7 +150,7 @@ class webcontroller extends Controller
         ]); 
         return redirect('/komentarkids');      
 	}
-	//Edit manage produk
+	//Edit manage produk dihapus
 	public function editmen($id){ 
         $laki = Laki::find($id); 
         return view('editmen',['laki'=>$laki]);     
@@ -166,7 +176,7 @@ class webcontroller extends Controller
         $kids = Kids::find($id); 
         return view('editcomkids',['kids'=>$kids]);     
 	}
-	//update produk
+	//update produk manage dihapus
 	public function updatemen($id, Request $request) 
     { 
         $laki = Laki::find($id); 
@@ -231,7 +241,7 @@ class webcontroller extends Controller
         $kids->save(); 
 		return redirect('/komentarkids');     
 	}
-	//Delete Produk
+	//Delete Produk manage
 	public function deletemen($id){ 
         $laki = Laki::find($id); 
 		$laki->delete();         

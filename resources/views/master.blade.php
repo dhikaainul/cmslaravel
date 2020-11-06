@@ -30,30 +30,41 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item ">
-            <a class="nav-link" href="/cmslaravel/public/home2">HOME
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/cmslaravel/public/men">MEN
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/cmslaravel/public/women">WOMEN</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/cmslaravel/public/kids">KIDS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/cmslaravel/public/carabayar">HOW TO BUY</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/cmslaravel/public/career">CAREER</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/cmslaravel/public/manage">MANAGE</a>
-          </li>
+          <li class="nav-item {{ Route::is('home2') ? 'active' : '' }}"> 
+            @can('user-display') 
+            <a class="nav-link" href="{{ route('home2') }}">HOME</a> 
+            @endcan 
+          </li> 
+          <li class="nav-item {{ Route::is('men') ? 'active' : '' }}"> 
+            @can('user-display') 
+            <a class="nav-link" href="{{ route('men') }}">MEN</a> 
+            @endcan 
+          </li> 
+          <li class="nav-item {{ Route::is('women') ? 'active' : '' }}"> 
+            @can('user-display') 
+            <a class="nav-link" href="{{ route('women') }}">WOMEN</a> 
+            @endcan 
+          </li> 
+          <li class="nav-item {{ Route::is('kids') ? 'active' : '' }}"> 
+            @can('user-display') 
+            <a class="nav-link" href="{{ route('kids') }}">KIDS</a> 
+            @endcan 
+          </li> 
+          <li class="nav-item {{ Route::is('carabayar') ? 'active' : '' }}"> 
+            @can('user-display') 
+            <a class="nav-link" href="{{ route('carabayar') }}">HOW TO BUY</a> 
+            @endcan 
+          </li> 
+          <li class="nav-item {{ Route::is('career') ? 'active' : '' }}"> 
+            @can('user-display') 
+            <a class="nav-link" href="{{ route('career') }}">CAREER</a> 
+            @endcan 
+          </li> 
+          <li class="nav-item {{ Route::is('manage') ? 'active' : '' }}"> 
+            @can('manage-lakis') 
+            <a class="nav-link" href="{{ route('manage') }}">MANAGE</a> 
+            @endcan 
+          </li> 
         </ul>
         <ul class="nav navbar-nav navbar-right">
         <li class="nav-item dropdown">
@@ -119,31 +130,45 @@
             <div class="row">
               <div class="col-lg-6">
                 <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="/cmslaravel/public/home">HOME</a>
-                  </li>
-                  <li>
-                    <a href="/cmslaravel/public/men">MEN</a>
-                  </li>
-                  <li>
-                    <a href="/cmslaravel/public/women">WOMEN</a>
-                  </li>
-                  <li>
-                    <a href="/cmslaravel/public/manage">MANAGE</a>
-                  </li>
+                  <li class="nav-item {{ Route::is('home2') ? 'active' : '' }}"> 
+                    @can('user-display') 
+                    <a class="nav-link" href="{{ route('home2') }}">HOME</a> 
+                    @endcan 
+                  </li> 
+                  <li class="nav-item {{ Route::is('men') ? 'active' : '' }}"> 
+                    @can('user-display') 
+                    <a class="nav-link" href="{{ route('men') }}">MEN</a> 
+                    @endcan 
+                  </li> 
+                  <li class="nav-item {{ Route::is('women') ? 'active' : '' }}"> 
+                    @can('user-display') 
+                    <a class="nav-link" href="{{ route('women') }}">WOMEN</a> 
+                    @endcan 
+                  </li> 
+                  <li class="nav-item {{ Route::is('manage') ? 'active' : '' }}"> 
+                     @can('manage-lakis') 
+                     <a class="nav-link" href="{{ route('manage') }}">MANAGE</a> 
+                     @endcan 
+                     </li> 
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="/cmslaravel/public/kids">KIDS</a>
-                  </li>
-                  <li>
-                    <a href="/cmslaravel/public/carabayar">HOW TO BUY</a>
-                  </li>
-                  <li>
-                    <a href="/cmslaravel/public/career">CAREER</a>
-                  </li>
+                <li class="nav-item {{ Route::is('kids') ? 'active' : '' }}"> 
+                  @can('user-display') 
+                  <a class="nav-link" href="{{ route('kids') }}">KIDS</a> 
+                  @endcan 
+                </li> 
+                <li class="nav-item {{ Route::is('carabayar') ? 'active' : '' }}"> 
+                  @can('user-display') 
+                  <a class="nav-link" href="{{ route('carabayar') }}">HOW TO BUY</a> 
+                  @endcan 
+                </li> 
+                <li class="nav-item {{ Route::is('career') ? 'active' : '' }}"> 
+                  @can('user-display') 
+                  <a class="nav-link" href="{{ route('career') }}">CAREER</a> 
+                  @endcan 
+                </li> 
                 </ul>
               </div>
             </div>
