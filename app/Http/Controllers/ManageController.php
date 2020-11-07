@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Gate;
 use App\Laki;
 use App\Perempuan;
 use App\Anak;
+use App\User;
 
 class ManageController extends Controller
 {
@@ -24,7 +25,12 @@ class ManageController extends Controller
 	public function manage3(){ 
 		$perempuan= Perempuan::all();
         return view('manage3',['perempuan'=>$perempuan]);
-    }
+	}
+	//menu manage user
+	public function manageuser(){ 
+		$user= User::all();
+        return view('manageuser',['user'=>$user]);
+	}
     //tambah manage product
 	public function addmanagemen(){ 
         return view('addmanagemen');
@@ -34,7 +40,7 @@ class ManageController extends Controller
 	}
 	public function addmanagekids(){ 
         return view('addmanagekids');
-    }
+	}
     //proses tambah data produk
 	public function createmen(Request $request) { 
         Laki::create([ 
@@ -134,5 +140,29 @@ class ManageController extends Controller
         $anak = Anak::find($id); 
 		$anak->delete();         
 		return redirect('/manage2'); 
+	}
+	//edit manage user
+	public function edituser($id){ 
+        $user = User::find($id); 
+        return view('edituser',['user'=>$user]);     
+	}
+	//update manage user
+	public function updateuser($id, Request $request) 
+    { 
+        $user = User::find($id); 
+		$user->name = $request->name; 
+		$user->email = $request->email;
+        $user->password = $request->password; 
+		$user->created_at = $request->created_at;
+		$user->updated_at = $request->updated_at;
+		$user->roles = $request->roles;    
+        $user->save(); 
+		return redirect('/manageuser');     
+	}
+	//delete manage user
+	public function deleteuser($id){ 
+        $user = User::find($id); 
+		$user->delete();         
+		return redirect('/manageuser'); 
 	}
 }

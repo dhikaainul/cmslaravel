@@ -26,11 +26,12 @@ class LoginController extends Controller
      * @var string
      */
     //protected $redirectTo = '/home2';
+
     public function redirectTo() 
     { 
     $for = [ 
        'Administrator' => 'manage',
-        'User'  => 'men', 
+        'User'  => 'home2', 
     ]; 
     return $this->redirectTo = route($for[auth()->user()->roles]); 
 } 

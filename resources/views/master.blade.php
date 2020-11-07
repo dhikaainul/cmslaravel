@@ -65,6 +65,11 @@
             <a class="nav-link" href="{{ route('manage') }}">MANAGE</a> 
             @endcan 
           </li> 
+          <li class="nav-item {{ Route::is('manageuser') ? 'active' : '' }}"> 
+            @can('manage-lakis') 
+            <a class="nav-link" href="{{ route('manageuser') }}">MANAGE USER</a> 
+            @endcan 
+          </li> 
         </ul>
         <ul class="nav navbar-nav navbar-right">
         <li class="nav-item dropdown">

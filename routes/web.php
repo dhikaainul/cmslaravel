@@ -29,6 +29,8 @@ Route::get('/komentarkids', 'webcontroller@komentarkids');
 Route::get('/manage','ManageController@manage')->name('manage');
 Route::get('/manage2','ManageController@manage2')->name('manage2');
 Route::get('/manage3','ManageController@manage3')->name('manage3');
+//menu manage user
+Route::get('/manageuser','ManageController@manageuser')->name('manageuser');
 //tambah manage produk
 Route::get('/addmanagemen','ManageController@addmanagemen');
 Route::get('/addmanagewomen','ManageController@addmanagewomen');
@@ -55,6 +57,10 @@ Route::get('/deletewomen/{id}','ManageController@deletewomen');
 Route::get('/editkids/{id}','ManageControllerr@editkids');
 Route::post('/updatekids/{id}','ManageController@updatekids');
 Route::get('/deletekids/{id}','ManageController@deletekids');
+//edit,update,delete user
+Route::get('/edituser/{id}','ManageController@edituser');
+Route::post('/updateuser/{id}','ManageController@updateuser');  
+Route::get('/deleteuser/{id}','ManageController@deleteuser');
 //edit,update,delete komen
 Route::get('/editcommen/{id}','webController@editcommen');
 Route::post('/updatecommen/{id}','webController@updatecommen');
