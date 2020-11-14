@@ -21,7 +21,7 @@
          <tr> 
               <td>{{$a->id}}</td> 
               <td>{{$a->title}}</td>
-              <td><img class="card-img-top"src="{{$a->image}}"></td>
+              <td><img class="card-img-top"src="{{asset('storage/'.$a->image)}}"></td>
               <td>{{$a->price}}</td>
               <td>{{$a->content}}</td>
               <td>{{$a->created_at}}</td> 

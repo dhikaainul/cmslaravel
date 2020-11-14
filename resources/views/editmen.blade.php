@@ -11,7 +11,8 @@
             </div> 
             <div class="form-group"> 
                 <label for="image">Image</label>                 
-                <input type="text" class="form-control" required="required" name="image" value="{{$laki->image}}"></br> 
+                <input type="file" class="form-control" required="required" name="image" value="{{$laki->image}}"></br> 
+                <img width="150px" src="{{asset('storage/'.$laki->image)}}"> 
             </div> 
             <div class="form-group"> 
                 <label for="price">Price</label>                 
@@ -31,6 +32,6 @@
             </div> 
             <button type="submit" name="edit" class="btn btn-primary float-right">Ubah Data</button> 
         </form> 
-
+        
 @endsection
       

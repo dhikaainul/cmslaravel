@@ -43,9 +43,13 @@ class ManageController extends Controller
 	}
     //proses tambah data produk
 	public function createmen(Request $request) { 
+		if($request->file('image')){ 
+			$image_name = $request->file('image')->store('images','public'); 
+		 } 
+	  
         Laki::create([ 
 			'title' => $request->title, 
-			'image' => $request->image,
+			'image' => $image_name,
             'content' => $request->content, 
 			'price' => $request->price,
 			'size' => $request->size,
@@ -92,8 +96,11 @@ class ManageController extends Controller
 	public function updatemen($id, Request $request) 
     { 
         $laki = Laki::find($id); 
-		$laki->title = $request->title; 
-		$laki->image = $request->image;
+		$laki->title = $request->title;
+		if($laki->image && file_exists(storage_path('app/public/' . $laki->image))){ 
+        \Storage::delete('public/'.$laki->image);    } 
+        $image_name = $request->file('image')->store('images', 'public');
+        $laki->image = $image_name; 
         $laki->content = $request->content; 
 		$laki->price = $request->price;
 		$laki->size = $request->size;
