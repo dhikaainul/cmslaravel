@@ -42,7 +42,7 @@ Route::get('/addmanagecomkids','webcontroller@addmanagecomkids');
 //create manage
 Route::post('/createmen','ManageController@createmen'); 
 Route::post('/createwomen','ManageController@createwomen');
-Route::post('/createkids','ManageControllerr@createkids');
+Route::post('/createkids','ManageController@createkids');
 //create komentar
 Route::post('/createcommen','webController@createcommen');
 Route::post('/createcomwomen','webController@createcomwomen');
@@ -54,7 +54,7 @@ Route::get('/deletemen/{id}','ManageController@deletemen');
 Route::get('/editwomen/{id}','ManageController@editwomen');
 Route::post('/updatewomen/{id}','ManageController@updatewomen');  
 Route::get('/deletewomen/{id}','ManageController@deletewomen');
-Route::get('/editkids/{id}','ManageControllerr@editkids');
+Route::get('/editkids/{id}','ManageController@editkids');
 Route::post('/updatekids/{id}','ManageController@updatekids');
 Route::get('/deletekids/{id}','ManageController@deletekids');
 //edit,update,delete user
@@ -71,7 +71,15 @@ Route::get('/deletecomwomen/{id}','webController@deletecomwomen');
 Route::get('/editcomkids/{id}','webController@editcomkids');
 Route::post('/updatecomkids/{id}','webController@updatecomkids');
 Route::get('/deletecomkids/{id}','webController@deletecomkids');
-
+//reporting pdf
+Route::get('/cetak_pdf', 'ManageController@cetak_pdf'); 
+Route::get('/cetakuser_pdf', 'ManageController@cetakuser_pdf'); 
+//user
+Route::get('/userr', 'UserController@userr');
+Route::get('/edituserr/{id}','UserController@edituserr');
+Route::post('/updateuserr/{id}','UserController@updateuserr'); 
+Route::get('/addmanageuser','ManageController@addmanageuser');
+Route::post('/createuser','ManageController@createuser');
 
 Route::get('/', function () {
     return view('auth/login');

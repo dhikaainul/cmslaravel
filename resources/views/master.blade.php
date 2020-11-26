@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Blog Home - Start Bootstrap Template</title>
+  <title>INSPIRED27 - Keep Faith On Process</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -78,7 +78,7 @@
                   {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/cmslaravel/public/men" class="icon"><span
+                    <a class="dropdown-item" href="/cmslaravel/public/userr" class="icon"><span
                    class="glyphicon glyphicon-user"></span>User Profile
                     <a class="dropdown-item" href="{{ route('logout') }}"
                       onclick="event.preventDefault();

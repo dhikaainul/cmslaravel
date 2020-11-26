@@ -2,7 +2,7 @@
 @section('konten')
         <!-- Blog Post -->
         <br></br>
-        <form action="/cmslaravel/public/updatekids/{{$anak->id}}" method="post"> 
+        <form action="/cmslaravel/public/updatekids/{{$anak->id}}" method="post" enctype="multipart/form-data"> 
             {{csrf_field()}} 
             <input type="hidden" name="id" value="{{$anak->id}}"></br> 
             <div class="form-group"> 
@@ -11,7 +11,8 @@
             </div> 
             <div class="form-group"> 
                 <label for="image">Image</label>                 
-                <input type="text" class="form-control" required="required" name="image" value="{{$anak->image}}"></br> 
+                <input type="file" class="form-control" required="required" name="image" value="{{$anak->image}}"></br> 
+                <img width="150px" src="{{asset('storage/'.$anak->image)}}">
             </div> 
             <div class="form-group"> 
                 <label for="price">Price</label>                 

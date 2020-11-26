@@ -3,7 +3,7 @@
         <!-- Blog Post -->
         <br></br>
         
-        <form action="/cmslaravel/public/updatewomen/{{$perempuan->id}}" method="post"> 
+        <form action="/cmslaravel/public/updatewomen/{{$perempuan->id}}" method="post" enctype="multipart/form-data"> 
             {{csrf_field()}} 
             <input type="hidden" name="id" value="{{$perempuan->id}}"></br> 
             <div class="form-group"> 
@@ -12,7 +12,8 @@
             </div> 
             <div class="form-group"> 
                 <label for="image">Image</label>                 
-                <input type="text" class="form-control" required="required" name="image" value="{{$perempuan->image}}"></br> 
+                <input type="file" class="form-control" required="required" name="image" value="{{$perempuan->image}}"></br> 
+                <img width="150px" src="{{asset('storage/'.$perempuan->image)}}">
             </div> 
             <div class="form-group"> 
                 <label for="price">Price</label>                 

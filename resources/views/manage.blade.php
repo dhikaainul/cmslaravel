@@ -19,7 +19,7 @@
      <tbody> 
          @foreach($laki as $a) 
          <tr> 
-              <td>{{$a->id}}</td> 
+              <td>{{$loop->iteration}}</td> 
               <td>{{$a->title}}</td>
               <td><img class="card-img-top"src="{{asset('storage/'.$a->image)}}"></td>
               <td>{{$a->price}}</td>
@@ -32,7 +32,8 @@
          @endforeach 
      </tbody> 
 </table> 
-<a href="/cmslaravel/public/addmanagemen" class="btn btn-primary">Tambah Data</a>
+<a href="/cmslaravel/public/addmanagemen" class="btn btn-primary float-left">Tambah Data</a>
+<a href="/cmslaravel/public/cetak_pdf" class="btn btn-primary float-right" target="_blank">Cetak PDF</a> 
 <br></br>
 <!-- Pagination -->
 <ul class="pagination justify-content-center">

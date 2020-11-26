@@ -1,9 +1,8 @@
 @extends ('master')
 @section('konten')
         <!-- Blog Post -->
-        <br></br>
-        
-        <form action="/cmslaravel/public/createwomen" method="post"> 
+        <br></br>       
+        <form action="/cmslaravel/public/createwomen" method="post" enctype="multipart/form-data"> 
             @csrf 
             <div class="form-group"> 
                 <label for="title">Name</label>                 
@@ -11,7 +10,7 @@
             </div> 
             <div class="form-group"> 
                 <label for="image">Image</label>                 
-                <input type="text" class="form-control" required="required" name="image"></br> 
+                <input type="file" class="form-control" required="required" name="image"></br> 
             </div> 
             <div class="form-group"> 
                 <label for="price">Price</label>                 

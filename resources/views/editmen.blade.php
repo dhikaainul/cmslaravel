@@ -2,7 +2,7 @@
 @section('konten')
         <!-- Blog Post -->
         <br></br>
-        <form action="/cmslaravel/public/updatemen/{{$laki->id}}" method="post"> 
+        <form action="/cmslaravel/public/updatemen/{{$laki->id}}" method="post" enctype="multipart/form-data"> 
             {{csrf_field()}} 
             <input type="hidden" name="id" value="{{$laki->id}}"></br> 
             <div class="form-group"> 

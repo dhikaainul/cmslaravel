@@ -8,9 +8,8 @@
          <tr> 
               <th>No</th>
               <th>Name</th>  
+              <th>Image</th> 
               <th>Email</th> 
-              <th>Created_at</th>
-              <th>Updated_at</th>
               <th>Roles</th> 
               <th>Action</th> 
          </tr> 
@@ -18,11 +17,10 @@
      <tbody> 
          @foreach($user as $a) 
          <tr> 
-              <td>{{$a->id}}</td> 
+              <td>{{$loop->iteration}}</td> 
               <td>{{$a->name}}</td>
+              <td><img width="150px" src="{{asset('storage/'.$a->image)}}"></td>
               <td>{{$a->email}}</td>
-              <td>{{$a->created_at}}</td>
-              <td>{{$a->updated_at}}</td>
               <td>{{$a->roles}}</td> 
               <td><a href="/cmslaravel/public/edituser/{{ $a->id }}" class="btn btn-primary btn-sm">Edit</a> 
                   <br></br>
@@ -31,6 +29,8 @@
          @endforeach 
      </tbody> 
 </table> 
+<a href="/cmslaravel/public/addmanageuser" class="btn btn-primary">Tambah Data</a>
+<a href="/cmslaravel/public/cetakuser_pdf" class="btn btn-primary float-right" target="_blank">Cetak PDF</a>
 <br></br>
 @endsection
       

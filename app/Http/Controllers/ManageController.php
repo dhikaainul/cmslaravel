@@ -10,6 +10,7 @@ use App\Laki;
 use App\Perempuan;
 use App\Anak;
 use App\User;
+use PDF;
 
 class ManageController extends Controller
 {
@@ -45,8 +46,7 @@ class ManageController extends Controller
 	public function createmen(Request $request) { 
 		if($request->file('image')){ 
 			$image_name = $request->file('image')->store('images','public'); 
-		 } 
-	  
+		 } 	  
         Laki::create([ 
 			'title' => $request->title, 
 			'image' => $image_name,
@@ -58,9 +58,12 @@ class ManageController extends Controller
         return redirect('/manage');      
 	}
 	public function createwomen(Request $request) { 
+		if($request->file('image')){ 
+			$image_name = $request->file('image')->store('images','public'); 
+		} 
         Perempuan::create([ 
             'title' => $request->title, 
-			'image' => $request->image,
+			'image' => $image_name,
             'content' => $request->content, 
 			'price' => $request->price,
 			'size' => $request->size,
@@ -69,9 +72,12 @@ class ManageController extends Controller
 		return redirect('/manage3');
 	}
 	public function createkids(Request $request) { 
+		if($request->file('image')){ 
+			$image_name = $request->file('image')->store('images','public'); 
+		}
         Anak::create([ 
 			'title' => $request->title, 
-			'image' => $request->image,
+			'image' => $image_name,
             'content' => $request->content, 
 			'price' => $request->price,
 			'size' => $request->size,
@@ -112,7 +118,10 @@ class ManageController extends Controller
     { 
         $perempuan = Perempuan::find($id); 
 		$perempuan->title = $request->title; 
-		$perempuan->image = $request->image;
+		if($perempuan->image && file_exists(storage_path('app/public/' . $perempuan->image))){ 
+		\Storage::delete('public/'.$perempuan->image);    } 
+		$image_name = $request->file('image')->store('images', 'public');
+		$perempuan->image = $image_name;;
         $perempuan->content = $request->content; 
 		$perempuan->price = $request->price;
 		$perempuan->size = $request->size;
@@ -124,7 +133,10 @@ class ManageController extends Controller
     { 
         $anak = Anak::find($id); 
 		$anak->title = $request->title; 
-		$anak->image = $request->image;
+		if($anak->image && file_exists(storage_path('app/public/' . $anak->image))){ 
+		\Storage::delete('public/'.$anak->image);    } 
+		$image_name = $request->file('image')->store('images', 'public');
+		$anak->image = $image_name;
         $anak->content = $request->content; 
 		$anak->price = $request->price;
 		$anak->size = $request->size;
@@ -148,6 +160,24 @@ class ManageController extends Controller
 		$anak->delete();         
 		return redirect('/manage2'); 
 	}
+	//tambah manage user
+	public function addmanageuser(){ 
+        return view('addmanageuser');
+	}
+	//proses tambah data user
+	public function createuser(Request $request) { 
+		if($request->file('image')){ 
+			$image_name = $request->file('image')->store('images','public'); 
+		 } 	  
+        User::create([ 
+			'name' => $request->name, 
+			'image' => $image_name,
+            'email' => $request->email, 
+			'password' => $request->password,
+			'roles'=>$request->roles
+        ]); 
+        return redirect('/manageuser');      
+	}
 	//edit manage user
 	public function edituser($id){ 
         $user = User::find($id); 
@@ -158,10 +188,12 @@ class ManageController extends Controller
     { 
         $user = User::find($id); 
 		$user->name = $request->name; 
+		if($user->image && file_exists(storage_path('app/public/' . $user->image))){ 
+		\Storage::delete('public/'.$user->image);    } 
+		$image_name = $request->file('image')->store('images', 'public');
+		$user->image = $image_name;
 		$user->email = $request->email;
         $user->password = $request->password; 
-		$user->created_at = $request->created_at;
-		$user->updated_at = $request->updated_at;
 		$user->roles = $request->roles;    
         $user->save(); 
 		return redirect('/manageuser');     
@@ -172,4 +204,16 @@ class ManageController extends Controller
 		$user->delete();         
 		return redirect('/manageuser'); 
 	}
+	//report pdf
+	public function cetak_pdf(){  
+		$laki = Laki::all();
+		$perempuan = Perempuan::all(); 
+		$pdf = PDF::loadview('manage_pdf',['laki'=>$laki],['perempuan'=>$perempuan]);  
+		return $pdf->stream();
+	}
+	public function cetakuser_pdf(){  
+			$user = User::all();
+			$pdf = PDF::loadview('manageuser_pdf',['user'=>$user]);  
+			return $pdf->stream(); 
+	}  
 }
